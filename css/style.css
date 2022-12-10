@@ -1,0 +1,174 @@
+/* Defining the variables `--lightblue` and `--custom-checkbox-background` to be used in the CSS. */
+:root {
+    --lightblue: #4ad5f6;
+    --custom-checkbox-background: #00cfc0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(236, 236, 236);
+    border-radius: 5px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: rgb(83, 80, 80, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(189, 189, 189);
+}
+
+
+/* Making the date picker transparent. */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+
+/* Making the checkbox invisible. */
+.custom-checkbox input,
+.custom-checkbox-small input {
+    appearance: none;
+}
+
+/* Defining the size of the checkbox. */
+.custom-checkbox .tick-box,
+.custom-checkbox-small .tick-box {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+}
+
+/* Defining the size of the tick. */
+.custom-checkbox .tick,
+.custom-checkbox-small .tick {
+    width: 12px;
+    height: 8px;
+    border-right: none;
+    border-left: 2px solid var(--lightblue);
+    border-bottom: 2px solid var(--lightblue);
+    transform: rotate(-45deg) translate(6px, 0);
+    display: none;
+}
+
+/* Making the tick visible when the checkbox is checked. */
+.custom-checkbox:has(input:checked) .tick,
+.custom-checkbox-small:has(input:checked) .tick {
+    display: inline-block;
+}
+/* Changing the color of the checkbox when it is checked. */
+.custom-checkbox:has(input:checked) {
+    border: 2px solid var(--lightblue)
+}
+
+.custom-checkbox:has(input:checked) .tick-box {
+    border: 2px solid var(--lightblue)
+}
+
+.custom-checkbox:has(input:checked) svg {
+    fill: var(--lightblue)
+}
+
+.custom-checkbox-fairtype:has(input:checked) {
+    border: none
+}
+
+
+
+/* small checkbox */
+.custom-checkbox-small .tick-box {
+    width: 18px;
+    height: 18px;
+}
+
+/* Defining the size of the tick. */
+.custom-checkbox-small .tick {
+    width: 10px;
+    height: 7px;
+    border-right: none;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) translate(8px, -5px);
+}
+
+
+/* Changing the background color of the tick-box when the checkbox is checked. */
+.custom-checkbox-small:has(input:checked) .tick-box {
+    background-color: var(--custom-checkbox-background)
+}
+
+.custom-checkbox-small:has(input[data-theme="sky-blue"]:checked) .tick-box {
+    --custom-checkbox-background: #23c0f5;
+}
+
+.custom-checkbox-small:has(input[data-theme="dark-blue"]:checked) .tick-box {
+    --custom-checkbox-background: #007ace;
+}
+
+.custom-checkbox-small:has(input[data-theme="light-violet"]:checked) .tick-box {
+    --custom-checkbox-background: #5c6ac4;
+}
+
+.custom-checkbox-small:has(input[data-theme="light-purple"]:checked) .tick-box {
+    --custom-checkbox-background: #9c6ade;
+}
+
+.custom-checkbox-small:has(input[data-theme="dark-pink"]:checked) .tick-box {
+    --custom-checkbox-background: #de6a93;
+}
+
+
+
+
+
+/* Circular progress bar */
+.circular-progress {
+    position: relative;
+    background-color: lightgrey;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.bar {
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    background-color: #23c0f5;
+    border-radius: 50%;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%, 50% 50%);
+}
+
+.inner-circle {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+}
