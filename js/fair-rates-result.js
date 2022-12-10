@@ -133,6 +133,11 @@ monthlySlider.addEventListener("change", (e) => {
   monthlyFilter = e.target.value
   mapFareResults(fairestResultsData)
 })
+pointsSlider.addEventListener("change", (e) => {
+  pointsFilter = e.target.value
+  mapFareResults(fairestResultsData)
+})
+
 
 
 document.querySelector("body").addEventListener("click", (e) => {

@@ -20,10 +20,10 @@ newApplicationButton.addEventListener("click", (e) => {
 
 
     // Selecting all types of inputs used in the app
-    const inputField = document.querySelectorAll("input[type=text]");
-    const emailField = document.querySelector("input[type=email]")
-    const checkboxField = document.querySelectorAll("input[type=checkbox]")
-    const radioButtonField = document.querySelectorAll("input[type=radio]")
+    const inputField = document.querySelectorAll("input[type='text']");
+    const emailField = document.querySelector("input[type='email']")
+    const checkboxField = document.querySelectorAll("input[type='checkbox']")
+    const radioButtonField = document.querySelectorAll("input[type='radio']")
 
 
     // Reseting all the input types of their default values
