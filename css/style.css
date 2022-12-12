@@ -4,24 +4,24 @@
     --custom-checkbox-background: #00cfc0;
 }
 
-/* width */
+/* Scrollbar width */
 ::-webkit-scrollbar {
     width: 4px;
 }
 
-/* Track */
+/* Scrollbar Track */
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgb(236, 236, 236);
     border-radius: 5px;
 }
 
-/* Handle */
+/* Scrollbar Handle */
 
 ::-webkit-scrollbar-thumb {
     background: rgb(83, 80, 80, 0.5);
 }
 
-/* Handle on hover */
+/* Scrollbar Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(189, 189, 189);
 }
@@ -79,14 +79,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid var(--lightblue)
 }
 
+/* Changing the border of the tick-box to be 2px solid lightblue when the checkbox is checked. */
 .custom-checkbox:has(input:checked) .tick-box {
     border: 2px solid var(--lightblue)
 }
 
+/* Changing the color of the SVG to lightblue when the checkbox is checked. */
 .custom-checkbox:has(input:checked) svg {
     fill: var(--lightblue)
 }
 
+/* Making the border of the checkbox invisible when it is checked. */
 .custom-checkbox-fairtype:has(input:checked) {
     border: none
 }
@@ -98,6 +101,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 18px;
     height: 18px;
 }
+
 
 /* Defining the size of the tick. */
 .custom-checkbox-small .tick {
