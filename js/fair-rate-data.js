@@ -20,6 +20,39 @@ export let documentFileObj = {
 export const lendersData = [
   {
     logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7741",
+    apr: "4.0",
+    date: "MAR 22",
+    rate: "3.979",
+    estPayment: "982.11",
+    phone: "(887) 407 - 88902",
+    timeStamp: "5 years",
+    priceType: "Variable Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7794",
+    apr: "3.4",
+    date: "MAR 08",
+    rate: "3.401",
+    estPayment: "840.77",
+    phone: "(887) 900 - 11079",
+    timeStamp: "5 years",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7761",
+    apr: "3.9",
+    date: "MAR 20",
+    rate: "3.908",
+    estPayment: "957.91",
+    phone: "(887) 407 - 88451",
+    timeStamp: "5 years",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
     nmlsId: "7701",
     apr: "3.6",
     date: "MAR 10",
@@ -97,6 +130,28 @@ export const lendersData = [
   },
   {
     logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7701",
+    apr: "3.6",
+    date: "MAR 10",
+    rate: "3.500",
+    estPayment: "898.09",
+    phone: "(887) 407 - 37123",
+    timeStamp: "10 years",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7791",
+    apr: "2.3",
+    date: "MAR 12",
+    rate: "1.700",
+    estPayment: "701.11",
+    phone: "(887) 891 - 77097",
+    timeStamp: "5 year",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
     nmlsId: "7758",
     apr: "3.8",
     date: "APR 25",
@@ -104,6 +159,28 @@ export const lendersData = [
     estPayment: "931.09",
     phone: "(887) 107 - 98084",
     timeStamp: "1 year",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7791",
+    apr: "2.3",
+    date: "MAR 12",
+    rate: "1.700",
+    estPayment: "701.11",
+    phone: "(887) 891 - 77097",
+    timeStamp: "5 year",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7761",
+    apr: "3.9",
+    date: "MAR 20",
+    rate: "3.908",
+    estPayment: "957.91",
+    phone: "(887) 407 - 88451",
+    timeStamp: "5 years",
     priceType: "Fixed Price"
   },
   {
@@ -137,6 +214,28 @@ export const lendersData = [
     estPayment: "840.77",
     phone: "(887) 900 - 11079",
     timeStamp: "5 years",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7701",
+    apr: "3.6",
+    date: "MAR 10",
+    rate: "3.500",
+    estPayment: "898.09",
+    phone: "(887) 407 - 37123",
+    timeStamp: "10 years",
+    priceType: "Fixed Price"
+  },
+  {
+    logo: "https://dl.dropboxusercontent.com/s/xlee5mksorbbgwf/bitmap.png?dl=0",
+    nmlsId: "7791",
+    apr: "2.3",
+    date: "MAR 12",
+    rate: "1.700",
+    estPayment: "701.11",
+    phone: "(887) 891 - 77097",
+    timeStamp: "5 year",
     priceType: "Fixed Price"
   },
   {

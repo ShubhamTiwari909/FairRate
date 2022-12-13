@@ -1,6 +1,6 @@
-import {nextButtonNavigation} from "./navigations"
-import {personalDetailsObj} from './fair-rate-data'
-
+import { nextButtonNavigation } from "./navigations"
+import { personalDetailsObj } from './fair-rate-data'
+import { validationInputs } from "./validations";
 
 // Accesing the form which contains all the inputs, checkbox and radio buttons
 const personalDetails = document.querySelector("#personal-details-form");
@@ -17,7 +17,7 @@ personalDetails.addEventListener("click", (e) => {
     // border color accorindingle,red for empty and green for filled
     if (target.matches('[data-form="address"]')) {
         //keyup event so the validation will be done in realtime on every key-stroke
-       /* Adding an event listener to the target element, which is the input field. */
+        /* Adding an event listener to the target element, which is the input field. */
         target.addEventListener("keyup", (e) => {
             const innerTarget = e.target;
             if (innerTarget.value.length <= 0) {
@@ -120,8 +120,8 @@ personalDetails.addEventListener("click", (e) => {
         if (Object.values(personalDetailsObj).every(x => x.length > 0)) {
             nextButtonNavigation(sectionContainer)
         }
-        else{
-            alert("Please fill all the fields!!")
+        else {
+          validationInputs(sectionContainer,personalDetailsObj)
         }
     }
 })

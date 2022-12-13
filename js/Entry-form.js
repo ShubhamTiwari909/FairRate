@@ -1,8 +1,28 @@
 import { nameObj } from "./fair-rate-data";//User name data will be stores in this object
+import { validationInputs } from "./validations";
 
 const body = document.querySelector("body")
 const userNameValue = document.querySelector("#user-name")//accessing the user name value to set it in the profile
+const inputField = document.querySelectorAll(".name-field")
 
+
+
+/* This is a function that is checking if the input field is empty or not. If it is empty, it
+will add a red border to the input field. If it is not empty, it will add a green border to
+the input field. */
+inputField.forEach(input => {
+    input.addEventListener("keyup", (e) => {
+        const target = e.target;
+        if (target.value.length <= 0) {
+            target.classList.add("border-red-600")
+            target.classList.remove("border-green-600")
+        }
+        else {
+            target.classList.add("border-green-600")
+            target.classList.remove("border-red-600")
+        }
+    })
+});
 
 body.addEventListener("click", (e) => {
     const target = e.target;
@@ -17,21 +37,6 @@ body.addEventListener("click", (e) => {
         if (sectionContainer.nextElementSibling === null) return;
         e.preventDefault();
 
-      /* This is a function that is checking if the input field is empty or not. If it is empty, it
-      will add a red border to the input field. If it is not empty, it will add a green border to
-      the input field. */
-        const inputField = sectionContainer.querySelectorAll(".name-field")
-        inputField.forEach(input => {
-            if (input.value.length <= 0) {
-                input.classList.add("border-red-700")
-                input.classList.remove("border-green-700")
-            }
-            else {
-                input.classList.remove("border-red-700")
-                input.classList.add("border-green-700")
-            }
-        })
-
         // Setting the first and last name property of name object with the input value
         nameObj["firstName"] = inputField[0].value
         nameObj["lastName"] = inputField[1].value
@@ -45,11 +50,11 @@ body.addEventListener("click", (e) => {
             // Set the current container display value of hidden and set the 
             // next sibling container display value to flex amking it visible 
             sectionContainer.classList.add("hidden")
-            sectionContainer.nextElementSibling.classList.add("flex")
+            sectionContainer.nextElementSibling.classList.add("block")
             sectionContainer.nextElementSibling.classList.remove("hidden")
         }
-        else{
-            alert("Please fill all the required fields")
+        else {
+            validationInputs(sectionContainer,nameObj)
         }
     }
 })

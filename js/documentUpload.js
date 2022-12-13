@@ -1,5 +1,6 @@
 import { prevButtonNavigation, nextButtonNavigation } from './navigations'
 import {documentFileObj} from './fair-rate-data'
+import { validationInputs} from './validations'
 
 
 //selecting all required elements
@@ -108,7 +109,7 @@ document.querySelector("body").addEventListener("click", (e) => {
             nextButtonNavigation(sectionContainer)
         }
         else {
-            alert("Please Select a document to proceed")
+           validationInputs(sectionContainer,documentFileObj)
         }
     }
 
@@ -152,7 +153,7 @@ const setttingFileValue = (target) => {
 
            /* Setting the html markup of the new element and setting the file name, file size, and file type. */
             newDocument.innerHTML = `
-            <p class="whitespace-nowrap overflow-hidden text-ellipsis w-20"><i class="fa-solid text-xl mr-5 ${fileTypeLogo(fileType)}"></i> 
+            <p class="whitespace-nowrap overflow-hidden text-ellipsis w-40"><i class="fa-solid text-xl mr-5 ${fileTypeLogo(fileType)}"></i> 
             <span>${fileName}<span></p>
             <p>${fileType}</p>
             <p>${Number.parseFloat(fileSize / (1024 * 1024)).toFixed(2)}mb</p>

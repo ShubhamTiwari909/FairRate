@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.8"
+    "@tailwindcss/typography": "^0.5.8",
+    "vanilla-js-calendar": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",

@@ -1,9 +1,14 @@
 import { lendersData } from './fair-rate-data'
 import { prevButtonNavigation, nextButtonNavigation } from './navigations'
 const lendersTable = document.getElementById("lenders-table");
+
 let yearFilter = "All";
 let priceFilter = "All";
 let resultCount = document.querySelector("#result-count");
+
+// For pagination
+let startIndex = 0;
+let endIndex = 10;
 
 const mapLendersData = (lendersData) => {
 
@@ -15,7 +20,7 @@ const mapLendersData = (lendersData) => {
   }).filter(row => {
     if (priceFilter === "All") return row
     return row.priceType === priceFilter
-  }).map(row => {
+  }).slice(startIndex, endIndex).map(row => {
     return (
       ` <li class="flex justify-between items-start p-5">
             <div class=" flex-1">
@@ -57,7 +62,7 @@ const mapLendersData = (lendersData) => {
                 >Toll-free, no obligations</span
               >
             </p>
-            <button class="px-4 py-2 rounded-sm bg-slate-500 text-sm text-slate-200">NEXT</button>
+            <button class="px-4 py-2 rounded-sm bg-slate-500 text-sm text-slate-200 next-btn">NEXT</button>
           </li>`
     )
   }).join("")
@@ -74,22 +79,39 @@ mapLendersData(lendersData)
 document.querySelector("body").addEventListener("click", (e) => {
   const target = e.target
   const sectionContainer = target.closest(".section-container")
-  const prevButton = target.closest("#lenders-prev")
-  const nextButton = target.closest("#lenders-next")
+  const paginationPrevious = target.closest("#lenders-prev")
+  const paginationNext = target.closest("#lenders-next")
   const yearFilterValue = target.closest("#years-filter")
   const priceFilterValue = target.closest("#price-filter")
   const filterButton = target.closest("#filter-button")
 
-  /* Checking if the nextButton exists. If it does, it is calling the nextButtonNavigation function and
-  passing in the sectionContainer. */
-  if (nextButton) {
-    nextButtonNavigation(sectionContainer)
+
+  /* Checking if the nextButton is clicked. If it is, then it is checking if the endIndex is less than
+  the length of the lendersData. If it is, then it is incrementing the startIndex and endIndex by 10.
+  Then it is calling the mapLendersData function and passing in the lendersData. */
+  if (paginationNext) {
+    if (endIndex < lendersData.length) {
+      startIndex += 10;
+      endIndex += 10;
+    }
+    mapLendersData(lendersData)
   }
 
-  /* Checking if the prevButton exists. If it does, it is calling the prevButtonNavigation function and
-  passing in the sectionContainer. */
-  if (prevButton) {
-    prevButtonNavigation(sectionContainer)
+  /* Checking if the prevButton is clicked. If it is, then it is checking if the endIndex is less than
+    20. If it is, then it is setting the startIndex to 0 and the endIndex to 10. If it is not, then
+  it is
+    decrementing the startIndex and endIndex by 10. Then it is calling the mapLendersData function
+  and passing in
+    the lendersData. */
+  if (paginationPrevious) {
+    if (endIndex < 20) {
+      startIndex = 0;
+      endIndex = 10;
+    } else {
+      startIndex -= 10;
+      endIndex -= 10;
+    }
+    mapLendersData(lendersData)
   }
 
   /* Setting the yearFilter and priceFilter variables to the value of the target. */
@@ -105,6 +127,10 @@ document.querySelector("body").addEventListener("click", (e) => {
   if (filterButton) {
     e.preventDefault()
     mapLendersData(lendersData)
+  }
+
+  if (target.matches(".next-btn")) {
+    nextButtonNavigation(sectionContainer)
   }
 })
 
