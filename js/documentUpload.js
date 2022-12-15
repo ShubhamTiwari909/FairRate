@@ -5,7 +5,7 @@ import { validationInputs} from './validations'
 
 //selecting all required elements
 const dropArea = document.querySelector(".drag-area"),
-    dragText = dropArea.querySelector(".drag-text"),
+    dragFile = dropArea.querySelector(".drag-file"),
     button = dropArea.querySelector(".file-input-button"),
     input = dropArea.querySelector(".file-input");
 
@@ -58,32 +58,32 @@ const fileTypeLogo = (fileType) => {
 // //If user Drag File Over DropArea
 /* This is an event listener. It is listening for the dragover event. When the dragover event is
 triggered, it will prevent the default behavior, add the active class to the dropArea element, and
-change the text of the dragText element. */
+change the text of the dragFile element. */
 dropArea.addEventListener("dragover", (event) => {
     event.preventDefault(); //preventing from default behaviour
     dropArea.classList.add("active");
-    dragText.textContent = "Release to Upload File";
+    dragFile.textContent = "Release to Upload File";
 });
 
 // //If user leave dragged File from DropArea
 /* This is an event listener. It is listening for the dragleave event. When the dragleave event is
 triggered, it will remove the active class from the dropArea element and change the text of the
-dragText
+dragFile
 element. */
 dropArea.addEventListener("dragleave", () => {
     dropArea.classList.remove("active");
-    dragText.textContent = "Drag files here to upload";
+    dragFile.textContent = "Drag files here to upload";
 });
 
 //If user drop File on DropArea
 /* This is an event listener. It is listening for the drop event. When the drop event is triggered, it
 will prevent the default behavior, remove the active class from the dropArea element, change the
-text of the dragText element, and call the setttingFileValue function. */
+text of the dragFile element, and call the setttingFileValue function. */
 dropArea.addEventListener("drop", (e) => {
     e.preventDefault(); 
     const target = e.dataTransfer
     dropArea.classList.remove("active");
-    dragText.textContent = "Drag files here to upload";
+    dragFile.textContent = "Drag files here to upload";
     setttingFileValue(target)
 });
 
