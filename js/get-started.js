@@ -29,8 +29,10 @@ newApplicationButton.addEventListener("click", (e) => {
     // Reseting all the input types of their default values
     inputField.forEach(input => {
         input.value = ""
+        input.classList.add("border-gray-300")
     })
     emailField.value = ""
+    email.classList.add("border-gray-300")
     checkboxField.forEach(checkbox => {
         checkbox.checked = false
     })
