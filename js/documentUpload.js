@@ -149,7 +149,7 @@ const setttingFileValue = (target) => {
             const fileType = target.files[0].type.split('/').pop();
 
             /* Setting the class attribute of the newDocument element. */
-            newDocument.setAttribute("class", "py-5 flex justify-between items-end text-sm text-slate-700 border-b-2 border-slate-100 document-file")
+            newDocument.setAttribute("class", "py-3 flex justify-between items-end text-sm text-slate-700 border-b-2 border-slate-100 document-file")
 
            /* Setting the html markup of the new element and setting the file name, file size, and file type. */
             newDocument.innerHTML = `
