@@ -21,18 +21,7 @@ pointsSliderValue.innerText = pointsSlider.value
 
 const mapFareResults = (fairestResultsData) => {
 
-
-  /*Filtering the result based on 5 filters monthly-filter,points/credits 
-   * andfilter,type filter - fixed or adjustable
-   * time or year filter, level filter 10/1,7/1 or 5/1 and 
-   * returning the filtered data and mapping it to the list.
-   * Labelcolor function uses the value of label value of fixed or adjustable 
-   * and time or level like 15 or 20 or 10/1 or 7/1 and returning the background
-   * class according to the object key value
-   */
-
-
-  /**
+    /**
     * It takes a string as an argument and returns a string that is the value of a key in an object.
     * @param value - The value of the label
     * @returns The value of the key in the object.
@@ -46,6 +35,18 @@ const mapFareResults = (fairestResultsData) => {
       Adjustable_7: "bg-light-purple",
       Adjustable_5: "bg-dark-pink",
     }
+    
+
+  /*Filtering the result based on 5 filters monthly-filter,points/credits 
+   * andfilter,type filter - fixed or adjustable
+   * time or year filter, level filter 10/1,7/1 or 5/1 and 
+   * returning the filtered data and mapping it to the list.
+   * Labelcolor function uses the value of label value of fixed or adjustable 
+   * and time or level like 15 or 20 or 10/1 or 7/1 and returning the background
+   * class according to the object key value
+   */
+
+
   let resultData = fairestResultsData.filter(row => {
     if (monthlyFilter === "") return row
     return row.perMonth <= monthlyFilter

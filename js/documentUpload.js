@@ -1,6 +1,6 @@
 import { prevButtonNavigation, nextButtonNavigation } from './navigations'
-import {documentFileObj} from './fair-rate-data'
-import { validationInputs} from './validations'
+import { documentFileObj } from './fair-rate-data'
+import { validationInputs } from './validations'
 
 
 //selecting all required elements
@@ -32,7 +32,7 @@ documentImages.addEventListener("click", (e) => {
 
     if (deleteFileButton === null) return;
 
-   /* This is finding the index of the file name in the documentFileObj object. */
+    /* This is finding the index of the file name in the documentFileObj object. */
     const index = documentFileObj["fileName"].find(x => x === documentName)
     /* This is removing the file name from the documentFileObj object. */
     documentFileObj["fileName"].splice(index, 1)
@@ -80,7 +80,7 @@ dropArea.addEventListener("dragleave", () => {
 will prevent the default behavior, remove the active class from the dropArea element, change the
 text of the dragFile element, and call the setttingFileValue function. */
 dropArea.addEventListener("drop", (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const target = e.dataTransfer
     dropArea.classList.remove("active");
     dragFile.textContent = "Drag files here to upload";
@@ -109,7 +109,7 @@ document.querySelector("body").addEventListener("click", (e) => {
             nextButtonNavigation(sectionContainer)
         }
         else {
-           validationInputs(sectionContainer,documentFileObj)
+            validationInputs(sectionContainer, documentFileObj)
         }
     }
 
@@ -123,40 +123,42 @@ document.querySelector("body").addEventListener("click", (e) => {
 
 
 const setttingFileValue = (target) => {
-    //getting user select file and [0] this means if user select multiple files then we'll select only the first one
-    const fileSize = target.files[0].size
+    /*getting user select file and [0] this means if user select multiple files then we'll select only the first one
+     This is getting the file name, file size, and file type. */
+    const fileName = target.files[0].name;
+    const fileSize = target.files[0].size;
+    const fileType = target.files[0].type.split('/').pop();//fetching only the part after slash
+
     let filesizeErrorMessage = document.getElementById("filesize-error")
     let filetypeErrorMessage = document.getElementById("filetype-error")
 
-   /* This is checking the file size. If the file size is greater than 5mb, it will show an error
-   message. */
-    if (Number.parseFloat(fileSize / (1024 * 1024)).toFixed(2) > 5) {
+    /* This is checking the file size. If the file size is greater than 5mb, it will show an error
+    message. */
+    let sizeInMB = Number.parseFloat(fileSize / (1024 * 1024)).toFixed(2)
+    if (sizeInMB > 5) {
         filesizeErrorMessage.classList.remove("hidden")
         filetypeErrorMessage.classList.add("hidden")
     }
     else {
         filesizeErrorMessage.classList.add("hidden")
-       /* This is checking the file type. If the file type is not pdf or image, it will show an error
-       message. */
+        /* This is checking the file type. If the file type is not pdf or image, it will show an error
+        message. */
         if (target.files[0].type === "application/pdf" || target.files[0].type === "image/png" || target.files[0].type === "image/jpg"
             || target.files[0].type === "image/jpeg") {
             filetypeErrorMessage.classList.add("hidden")
 
             /* This is creating a new element and setting the file name, file size, and file type. */
             let newDocument = document.createElement("li");
-            const fileName = target.files[0].name;
-            const fileSize = target.files[0].size;
-            const fileType = target.files[0].type.split('/').pop();
 
             /* Setting the class attribute of the newDocument element. */
             newDocument.setAttribute("class", "py-3 flex justify-between items-end text-sm text-slate-700 border-b-2 border-slate-100 document-file")
 
-           /* Setting the html markup of the new element and setting the file name, file size, and file type. */
+            /* Setting the html markup of the new element and setting the file name, file size, and file type. */
             newDocument.innerHTML = `
             <p class="whitespace-nowrap overflow-hidden text-ellipsis w-40"><i class="fa-solid text-xl mr-5 ${fileTypeLogo(fileType)}"></i> 
             <span>${fileName}<span></p>
             <p>${fileType}</p>
-            <p>${Number.parseFloat(fileSize / (1024 * 1024)).toFixed(2)}mb</p>
+            <p>${sizeInMB}mb</p>
             <p>Uploaded</p>
             <button class="delete-document"><i class="fa-solid fa-trash"></i></button>
             `

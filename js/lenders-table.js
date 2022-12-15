@@ -3,15 +3,15 @@ import { prevButtonNavigation, nextButtonNavigation } from './navigations'
 
 const lendersTable = document.getElementById("lenders-table");
 
-/* Setting the value of the pageNumberValue to the pageNumber variable. */
+/* Setting the value of the pageNumber input to the pageNumber variable value. */
 const pageNumberValue = document.querySelector("#page-number")
+let resultCount = document.querySelector("#result-count");
 
 let pageNumber = 0;
 pageNumberValue.value = pageNumber
 
 let yearFilter = "All";
 let priceFilter = "All";
-let resultCount = document.querySelector("#result-count");
 
 // For pagination
 let startIndex = 0;
