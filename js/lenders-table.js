@@ -104,6 +104,7 @@ document.querySelector("body").addEventListener("click", (e) => {
     }
     pageNumberValue.value = pageNumber;
     mapLendersData(lendersData)
+    scrollToTop()
   }
 
   /* Checking if the prevButton is clicked. If it is, then it is checking if the endIndex is less than
@@ -123,6 +124,7 @@ document.querySelector("body").addEventListener("click", (e) => {
     }
     pageNumberValue.value = pageNumber;
     mapLendersData(lendersData)
+    scrollToTop()
   }
 
   /* Setting the yearFilter and priceFilter variables to the value of the target. */
@@ -149,7 +151,7 @@ document.querySelector("body").addEventListener("click", (e) => {
 
 
 pageNumberValue.addEventListener("change", (e) => {
- /* Converting the value of the pageNumberValue to a number. */
+  /* Converting the value of the pageNumberValue to a number. */
   let value = Number.parseInt(e.target.value)
 
   /* Checking if the value is greater than the length of the lendersData divided by 10. If it is, then it
@@ -172,4 +174,12 @@ pageNumberValue.addEventListener("change", (e) => {
   endIndex = startIndex + 10
   pageNumber = value
   mapLendersData(lendersData)
+  scrollToTop()
 })
+
+
+
+const scrollToTop = () => {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

@@ -1,6 +1,13 @@
 import { nameObj, personalDetailsObj, documentFileObj } from "./fair-rate-data";
-const newArray = [nameObj, personalDetailsObj, documentFileObj]
+
+const combinedData = [nameObj, personalDetailsObj, documentFileObj]
 const documentImages = document.querySelector("#document-images")
+
+// Selecting all types of inputs used in the app
+const inputField = document.querySelectorAll("input[type='text']");
+const emailField = document.querySelector("input[type='email']")
+const checkboxField = document.querySelectorAll("input[type='checkbox']")
+const radioButtonField = document.querySelectorAll("input[type='radio']")
 
 // Reseting the values of all the objects
 
@@ -18,21 +25,24 @@ newApplicationButton.addEventListener("click", (e) => {
     mainContainer.firstElementChild.classList.add("flex")
     mainContainer.firstElementChild.classList.remove("hidden")
 
+    clearInputFields()
 
-    // Selecting all types of inputs used in the app
-    const inputField = document.querySelectorAll("input[type='text']");
-    const emailField = document.querySelector("input[type='email']")
-    const checkboxField = document.querySelectorAll("input[type='checkbox']")
-    const radioButtonField = document.querySelectorAll("input[type='radio']")
+    // Removing all the images or pdfs selected in the document sections
+    while (documentImages.lastChild) {
+        documentImages.lastChild.remove();//removee the last child of "ele"
+    }
+
+})
 
 
+const clearInputFields = () => {
     // Reseting all the input types of their default values
     inputField.forEach(input => {
         input.value = ""
         input.classList.remove("border-green-600")
     })
     emailField.value = ""
-    email.classList.remove("border-green-600")
+    emailField.classList.remove("border-green-600")
     checkboxField.forEach(checkbox => {
         checkbox.checked = false
     })
@@ -40,11 +50,10 @@ newApplicationButton.addEventListener("click", (e) => {
         radio.checked = false
     })
 
-
     /* Setting all the object properties to empty values if it stores strings and
-    empty array if it stores an array
-    */
-    newArray.forEach(data => {
+ empty array if it stores an array
+ */
+    combinedData.forEach(data => {
         Object.keys(data).forEach(key => {
             if (typeof data[key] == 'object') {
                 data[key] = []
@@ -54,10 +63,4 @@ newApplicationButton.addEventListener("click", (e) => {
             }
         })
     })
-
-    // Removing all the images or pdfs selected in the document sections
-    while (documentImages.lastChild) {
-        documentImages.lastChild.remove();//removee the last child of "ele"
-    }
-
-})
+}
