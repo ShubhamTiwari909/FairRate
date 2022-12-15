@@ -18,4 +18,11 @@ export const nextButtonNavigation = (sectionContainer) => {
     sectionContainer.classList.add("hidden")
     sectionContainer.nextElementSibling.classList.add("block")
     sectionContainer.nextElementSibling.classList.remove("hidden")
+    topFunction()
+}
+
+// When the user clicks on the button, scroll to the top of the document
+const topFunction = () =>  {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
